@@ -35,7 +35,7 @@ cm = "commit --amend --no-edit"
 m = "merge --no-ff --no-edit"
 m-dev = "!git checkout dev && git m -"
 m-master = "!git checkout master && git m -"
-ma = "!git a | git commit --no-edit"
+ma = "!git add --all && git commit --no-edit"
 
 #Undo
 uf = "checkout HEAD --"
