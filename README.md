@@ -39,7 +39,7 @@ ma = "!git add --all && git commit --no-edit"
 
 #Undo
 uf = "checkout HEAD --"
-u = "reset --hard"
+u = "!git add --all && git reset --hard"
 
 #Temporary file ignoring
 lock = "update-index --assume-unchanged"
