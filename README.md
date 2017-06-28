@@ -45,7 +45,7 @@ u = "!git add --all && git reset --hard"
 lock = "update-index --assume-unchanged"
 unlock = "update-index --no-assume-unchanged"
 locked = "!git ls-files -v | grep ^h | cut -c 3-"
-unlock-all = "!git locked | xargs git unlock"
+unlock-all = "!git locked | xargs -n 1 git unlock"
 
 #Pull
 pl = "pull --rebase"
