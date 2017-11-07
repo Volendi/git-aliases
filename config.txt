@@ -16,29 +16,30 @@
 
 	#Merging
 	m = "merge --no-ff --no-edit"
-	m-dev = "!git checkout dev && git m -"
-	m-master = "!git checkout master && git m -"
+	m-dev = "!git checkout dev && git pl && git m -"
+	m-master = "!git checkout master && git pl && git m -"
+	m-staging = "!git checkout staging && git pl && git m -"
 	ma = "!git add --all && git commit --no-edit"
 
 	#Undo
 	uf = "checkout HEAD --"
-	u = “!git add --all && git reset --hard"
+	u = "!git add --all && git reset --hard"
 
 	#Temporary file ignoring
 	lock = "update-index --assume-unchanged"
 	unlock = "update-index --no-assume-unchanged"
 	locked = "!git ls-files -v | grep ^h | cut -c 3-"
 	unlock-all = "!git locked | xargs -n 1 git unlock"
-	
+
 	#Pull
 	pl = "pull --rebase"
-	
+
 	#Push
 	ph = "push"
-	pha = "!git push --all && git push --tags"
+	pha = "!git push origin dev:dev && git push origin master:master && git push --tags"
 	phf = "push --force-with-lease"
 	plf = "!git fetch --all && git reset --hard"
-	
+
 	#Other
 	s = "status --short --branch"
 	b = "checkout -b"
