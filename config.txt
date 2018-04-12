@@ -16,6 +16,10 @@
 
 	#Merging
 	m = "merge --no-ff --no-edit"
+	m- = "!f() { git checkout $1 && git pl && git m -; }; f"
+	m-dev = "!git m- dev"
+	m-master = "!git m- master"
+	m-staging = "!git m- staging"
 	m-dev = "!git checkout dev && git pl && git m -"
 	m-master = "!git checkout master && git pl && git m -"
 	m-staging = "!git checkout staging && git pl && git m -"

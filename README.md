@@ -34,6 +34,10 @@ Contents:
   
   #Merging
   m = "merge --no-ff --no-edit"
+  m- = "!f() { git checkout $1 && git pl && git m -; }; f"
+  m-dev = "!git m- dev"
+  m-master = "!git m- master"
+  m-staging = "!git m- staging"
   m-dev = "!git checkout dev && git pl && git m -"
   m-master = "!git checkout master && git pl && git m -"
   m-staging = "!git checkout staging && git pl && git m -"
@@ -121,7 +125,7 @@ ca = "!git add --all && git c"
 cm = "commit --amend --no-edit"
 ```
 
-<h4><a name="commands_commiting">Commiting</a></h4>
+<h4><a name="commands_merging">Merging</a></h4>
 
 `git m [branch]` merges branch with creating merge commit and default merge commit message
 
@@ -129,16 +133,17 @@ cm = "commit --amend --no-edit"
 m = "merge --no-ff --no-edit"
 ```
 
-`git m-[dev/master/staging]` merges current branch into branch specified in command.
+`git m-[dev/master/staging/ some-another-branch]` merges current branch into branch specified in command.
 Workflow:
-1. Checkouts `dev/master/staging`
+1. Checkouts `dev/master/staging/some-another-branch`
 2. Performs pull
-3. Merges previous branch into `dev/master/staging`
+3. Merges previous branch into `dev/master/staging/some-another-branch`
 
 ```
-m-dev = "!git checkout dev && git pl && git m -"
-m-master = "!git checkout master && git pl && git m -"
-m-staging = "!git checkout staging && git pl && git m -"
+m- = "!f() { git checkout $1 && git pl && git m -; }; f"
+m-dev = "!git m- dev"
+m-master = "!git m- master"
+m-staging = "!git m- staging"
 ```
 
 <h4><a name="commands_undo">Undo</a></h4>
