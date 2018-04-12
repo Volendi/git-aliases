@@ -125,7 +125,7 @@ ca = "!git add --all && git c"
 cm = "commit --amend --no-edit"
 ```
 
-<h4><a name="commands_commiting">Commiting</a></h4>
+<h4><a name="commands_merging">Merging</a></h4>
 
 `git m [branch]` merges branch with creating merge commit and default merge commit message
 
